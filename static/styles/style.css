@@ -23,7 +23,7 @@
     --primary-bg: #000000;
     --secondary-bg: #272829;
     --main-text: #FFFFFF;
-    --sidebar-text: #020202;
+    --sidebar-text: #FFFFFF;
 }
 
 html {
@@ -78,6 +78,7 @@ html {
 
 .header {
     background-color: var(--primary-bg);
+    color: var(--main-text);
     grid-area: 1 2 span 1 span 1;
     padding: 1% 4%;
 
@@ -150,19 +151,26 @@ html {
     background-color: var(--main-accent);
     border: none;
     border-radius: 2rem;
-    color: var(--primary-bg);
+    color: var(--sidebar-text);
     flex: 1 1 auto;
     font-weight: bold;
     padding: 1rem;
     width: 8rem;
 }
 
-
-
-
-
 .main-content {
     background-color: var(--secondary-bg);
     box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
     grid-area: 2 2 span 1 span 1;
+}
+
+#toggleButton {
+    background-color: var(--primary-bg);
+    color: var(--main-text);
+    border: none;
+    border-radius: 100%;
+} 
+
+#toggleButton:hover {
+    color: var(--main-accent);
 }
