@@ -1,5 +1,87 @@
+/* Import Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/* Light Mode */
+:root {
+    --main-accent: #1992D4;
+    --card-accent: #F0B429;
+    --primary-bg: #FFFFFF;
+    --secondary-bg: #E2E8F0;
+    --main-text: #020202;
+    --sidebar-text: #FFFFFF;
+}
+
+.dark-mode {
+    --main-accent: #072f53;
+    --card-accent: #e7c881;
+    --primary-bg: #000000;
+    --secondary-bg: #272829;
+    --main-text: #FFFFFF;
+    --sidebar-text: #020202;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', 'system-ui';
+}
+
+.container {
+    display: grid;
+    grid-template: 1fr 5fr / 1fr 5fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    background-color: var(--main-accent);
+    color: var(--sidebar-text);
+    padding: 2rem;
+
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2.5rem;
+}
+
+.sidebar .top .item {
+    font-size: x-large;
+}
+
+.sidebar .item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: medium;
+
+    /* Allows hover effect on parent container padding to work */
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.sidebar .mid .item:hover,
+.sidebar .bot .item:hover {
+    background-color: var(--sidebar-text);
+    color: var(--main-accent);
+}
+
+.header {
+    background-color: var(--primary-bg);
+    grid-area: 1 2 span 1 span 1;
+}
+
+.main-content {
+    background-color: var(--secondary-bg);
+    grid-area: 2 2 span 1 span 1;
 }
