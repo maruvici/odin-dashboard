@@ -29,6 +29,7 @@
 html {
     font-size: 62.5%;
     font-family: 'Roboto', 'system-ui';
+    font-weight: bold;
 }
 
 .container {
@@ -60,10 +61,9 @@ html {
     align-items: center;
     gap: 2rem;
     padding: 0.5rem;
-    font-weight: bold;
     font-size: medium;
 
-    /* Allows hover effect on parent container padding to work */
+    /* Allows hover effect on parent container padding */
     margin-left: -2rem;
     margin-right: -2rem;
     padding-left: 2rem;
@@ -79,9 +79,90 @@ html {
 .header {
     background-color: var(--primary-bg);
     grid-area: 1 2 span 1 span 1;
+    padding: 1% 4%;
+
+    display: grid;
+    grid-template: 1fr 2fr / 3fr 2fr;
 }
+
+.header > * {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header .searchbar {
+    grid-area: 1 1 span 1 span 1;
+}
+
+.header .searchbar input {
+    flex: 1 1 0;
+    background-color: var(--secondary-bg);
+    border: none;
+    border-radius: 2rem;
+    margin-left: 1%;
+    margin-right: 20%;
+    padding: 0.7rem;
+}
+
+.header .notificationTab {
+    font-size: medium;
+    grid-area: 1 2 span 1 span 1;
+    justify-content: center;
+    gap: 10%;
+}
+
+.header .notificationTab img {
+    width: 5rem;
+    border-radius: 100%;
+}
+
+.header .greetingsBox {
+    grid-area: 2 1 span 1 span 1;
+}
+
+.header .greetingsBox .greetings {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+}
+
+.header .greetingsBox .greeting {
+    font-size: small;
+}
+
+.header .greetingsBox .username {
+    font-size: x-large;
+}
+
+.header .greetingsBox img {
+    width: 7rem;
+    border-radius: 100%;
+}
+
+.header .postButtons 
+{
+    gap: 5%;
+    grid-area: 2 2 span 1 span 1;
+}
+
+.header .postButtons button {
+    background-color: var(--main-accent);
+    border: none;
+    border-radius: 2rem;
+    color: var(--primary-bg);
+    flex: 1 1 auto;
+    font-weight: bold;
+    padding: 1rem;
+    width: 8rem;
+}
+
+
+
+
 
 .main-content {
     background-color: var(--secondary-bg);
+    box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
     grid-area: 2 2 span 1 span 1;
 }
