@@ -13,8 +13,10 @@
     --card-accent: #F0B429;
     --primary-bg: #FFFFFF;
     --secondary-bg: #E2E8F0;
+    --card-bg: #FFFFFF;
     --main-text: #020202;
     --sidebar-text: #FFFFFF;
+    --card-text: #515151;
 }
 
 .dark-mode {
@@ -22,8 +24,10 @@
     --card-accent: #e7c881;
     --primary-bg: #000000;
     --secondary-bg: #272829;
+    --card-bg: #FFFFFF;
     --main-text: #FFFFFF;
     --sidebar-text: #FFFFFF;
+    --card-text: #515151;
 }
 
 html {
@@ -61,7 +65,7 @@ html {
     align-items: center;
     gap: 2rem;
     padding: 0.5rem;
-    font-size: medium;
+    font-size: large;
 
     /* Allows hover effect on parent container padding */
     margin-left: -2rem;
@@ -79,11 +83,11 @@ html {
 .header {
     background-color: var(--primary-bg);
     color: var(--main-text);
-    grid-area: 1 2 span 1 span 1;
+    grid-area: 1 / 2 / span 1 / span 1;
     padding: 1% 4%;
 
     display: grid;
-    grid-template: 1fr 2fr / 3fr 2fr;
+    grid-template: 1fr 2fr / 1fr 1fr;
 }
 
 .header > * {
@@ -93,7 +97,7 @@ html {
 }
 
 .header .searchbar {
-    grid-area: 1 1 span 1 span 1;
+    grid-area: 1 / 1 / span 1 / span 1;
 }
 
 .header .searchbar input {
@@ -108,25 +112,26 @@ html {
 
 .header .notificationTab {
     font-size: medium;
-    grid-area: 1 2 span 1 span 1;
+    grid-area: 1 / 2 / span 1 / span 1;
     justify-content: center;
     gap: 8%;
 }
 
-.header .notificationTab img {
+.header .notificationTab img,
+.main-content .trendingTab .trend img {
     width: 4rem;
     border-radius: 100%;
 }
 
 .header .greetingsBox {
-    grid-area: 2 1 span 1 span 1;
+    grid-area: 2 / 1 / span 1 / span 1;
     gap: 2rem;
 }
 
 .header .greetingsBox .greetings {
     display: flex;
     flex-flow: column nowrap;
-    gap: 0.5rem;
+    gap: 0.2rem;
 }
 
 .header .greetingsBox .greeting {
@@ -145,7 +150,7 @@ html {
 .header .postButtons 
 {
     gap: 5%;
-    grid-area: 2 2 span 1 span 1;
+    grid-area: 2 / 2 / span 1 / span 1;
 }
 
 .header .postButtons button {
@@ -162,8 +167,158 @@ html {
 .main-content {
     background-color: var(--secondary-bg);
     box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
-    grid-area: 2 2 span 1 span 1;
+    grid-area: 2 / 2 / span 1 / span 1;
+    padding: 3rem;
+
+    display: grid;
+    grid-template: 4fr 3fr / 3fr 1fr;
+    gap: 2rem;
 }
+
+.main-content .projects .card,
+.main-content .announcements .announcementsTab,
+.main-content .trending .trendingTab {
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.main-content .projects {
+    grid-area: 1 / 1 / span 2 / span 1;
+}
+
+.main-content p[class="secHead"],
+.main-content .cards p[class="cardTitle"] {
+    font-size: large;
+}
+
+.main-content p[class="secHead"] {
+    color: var(--main-text);
+    margin-bottom: 1rem
+}
+
+.main-content .projects .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.main-content .projects .cards .card {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    overflow: hidden;
+
+    background-color: var(--card-bg);
+    border-bottom: 1rem solid var(--card-accent);
+    border-radius: 1rem;
+}
+
+.main-content .projects .cards .card img {
+    aspect-ratio: 2 / 1;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main-content .projects .cards .card .cardText {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.main-content .projects .cards .card .cardIcons {
+    align-self: center;
+    display: flex;
+    gap: 2rem;
+}
+
+.main-content .projects .cards .card p[class="cardSubtitle"] {
+    color: var(--card-text);
+    font-weight: 400;
+    font-size: small;
+}
+
+.cardIcons>i {
+    font-size: large;
+}
+
+.main-content .announcements {
+    display: flex;
+    flex-flow: column nowrap;
+    grid-area: 1 / 2 / span 1 / span 1;
+    overflow: hidden;
+}
+
+.main-content .announcements .announcementsTab {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 0 0;
+    min-height: 0;
+    overflow-y: auto;
+
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+}
+
+.main-content .announcementsTab .announcement {
+    flex: 1 0 0;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--secondary-bg)
+}
+
+.main-content .announcement p[class="title"] {
+    font-size: medium;
+    padding-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.main-content .announcement p[class="description"] {
+    padding-bottom: 1.5rem;
+    color: var(--card-text);
+    font-size: x-small;
+    font-weight: 400;
+}
+
+.main-content .trending {
+    display: flex;
+    flex-flow: column nowrap;
+    grid-area: 2 / 2 / span 1 / span 1;
+}
+
+.main-content .trending .trendingTab {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 0;
+
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.main-content .trendingTab .trend {
+    align-items: center;
+    display: flex;
+    flex: 1 0 0;
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+.main-content .trend .trendText {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+}
+
+.main-content .trend .trendText p[class="title"] {
+    font-size: medium;
+}
+
+.main-content .trend .trendText p[class="description"] {
+    color: var(--card-text);
+    font-size: small;
+    font-weight: 400;
+}
+
 
 #toggleButton {
     background-color: var(--primary-bg);
